@@ -1,0 +1,33 @@
+{
+  "name": "olgpt",
+  "version": "0.0.1",
+  "description": "Yet another GPT powered agent to perform boring programming tasks",
+  "main": "olgpt.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jpenalbae/olgpt.git"
+  },
+  "keywords": [
+    "openai",
+    "ai",
+    "gpt",
+    "agent",
+    "programming",
+    "programmer",
+    "autonomous"
+  ],
+  "type": "module",
+  "author": "Jaime Penalba",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/jpenalbae/olgpt/issues"
+  },
+  "homepage": "https://github.com/jpenalbae/olgpt#readme",
+  "dependencies": {
+    "gpt-tokens": "^1.0.9",
+    "openai": "^3.3.0"
+  }
+}
