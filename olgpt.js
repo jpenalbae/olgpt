@@ -43,37 +43,35 @@ res = await openai.createChatCompletion({
         {
             role: "system",
             content: `You are an AI developer which will generate code for the
-            user based on their description. When generating the code you
-            might write as many files a required to complete the task.`
+            user based on their description. When generating the code you have
+            to create as many files as you require to complete the task.`
         },
         {
             role: "user",
             content: userPrompt
         },
     ],
-    functions: [
-        {
-            name: "write_files",
-            description: "Writes a set of files with the given names and contents.",
-            parameters: {
-                type: "object",
-                properties: {
-                    filenames: {
-                        type: "array",
-                        items: { type: "string" },
-                        description: "Array containing each filename."
-                    },
-                    contents: {
-                        type: "array",
-                        items: { type: "string" },
-                        description: "Array containing the content of each file."
-                    }
+    functions: [{
+        name: "write_files",
+        description: "Writes a set of files with the given names and contents.",
+        parameters: {
+            type: "object",
+            properties: {
+                filenames: {
+                    type: "array",
+                    items: { type: "string" },
+                    description: "Array containing each filename."
                 },
-                required: ["filename", "content"]
+                contents: {
+                    type: "array",
+                    items: { type: "string" },
+                    description: "Array containing the content of each file."
+                }
             },
-            function_call: ""
+            required: ["filename", "content"]
         }
-    ]
+    }],
+    function_call: {name: "write_files"}
 });
 
 // console.log(res.data.choices);
@@ -85,8 +83,8 @@ if (res.data.choices[0].message.function_call.name === 'write_files') {
     write_files(argument.filenames, argument.contents);
     console.log('Files written. Check the output directory.');
 } else {
-    console.log('Unexpected response from GPT-3');
-    console.log('res.data.choices[0].message');
+    console.log('Unexpected response from GPT. Probably missing function_call.');
+    console.log(res.data.choices[0].message);
 }
 
 
