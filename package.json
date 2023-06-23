@@ -27,6 +27,7 @@
   },
   "homepage": "https://github.com/jpenalbae/olgpt#readme",
   "dependencies": {
+    "argparse": "^2.0.1",
     "gpt-tokens": "^1.0.9",
     "openai": "^3.3.0"
   }

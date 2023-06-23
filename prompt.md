@@ -1,1 +1,3 @@
-I need a simple C program that says hello world. Also generate another file to build it
+# Hello world
+
+Generate a fully working hello worlld program using the C language

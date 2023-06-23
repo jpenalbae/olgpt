@@ -1,0 +1,1 @@
+Build the generated code in case it needs to be compiled.
